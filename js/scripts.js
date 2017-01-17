@@ -3,12 +3,23 @@ $(document).ready(function(){
   $("form#favorite-form").submit(function(event){
     event.preventDefault();
 
-    var favoritesArray = [color, animal, country, flavor, food];
+    var favoritesArray = ["color", "animal", "country", "flavor", "food"];
+    var newArray = [];
 
     favoritesArray.forEach(function(favorites){
       var userInput = $("input#"+favorites).val();
-      $("li." + favorites).text(userInput);
+      newArray.push(userInput)
     });
+
+    var endArray = []
+    endArray.push(newArray[1]);
+    endArray.push(newArray[0]);
+    endArray.push(newArray[2]);
+
+    endArray.forEach(function(item){
+      $("#result").append("<li>" + item + "</li>");
+    })
+
   });
 
   //flavors
